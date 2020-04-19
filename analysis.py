@@ -59,26 +59,30 @@ class AnalysisCovid:
                 self.country_confirmed,
                 marker="*",
                 linestyle=":",
-                label="Confirmed")
+                label="Confirmed",
+                color="black")
         AX.plot(self.country_date,
                 self.country_active,
                 marker="x",
                 linestyle="-.",
-                label="Active")
+                label="Active",
+                color="orange")
         AX.plot(self.country_date,
                 self.country_deaths,
                 marker=".",
                 linestyle="--",
-                label="Deaths")
+                label="Deaths",
+                color="red")
         AX.plot(self.country_date,
                 self.country_recovered,
                 marker="4",
                 linestyle="-",
-                label="Recovered")
+                label="Recovered",
+                color="green")
         AX.legend()
         AX.set_xlabel("Date", size=16)
         AX.set_ylabel("Population", size=16)
-        fig.suptitle(f"{self.country_name} COVID-19 Trend", size=20)
+        fig.suptitle(f"{self.country_name}'s Overall COVID-19 Trend", size=20)
 
         # Formatting for the x-axis dates
         date_format = mdates.DateFormatter("%d-%b-%y")
@@ -99,22 +103,23 @@ class AnalysisCovid:
             self.country_recovery_percentage,
             marker="x",
             linestyle="-.",
-            label="Recovery Percentage"
+            label="Recovery Percentage",
+            color='green'
         )
         AX.plot(
             self.country_date,
             self.country_death_percentage,
             marker="4",
             linestyle="-",
-            label="Death Percentage"
+            label="Death Percentage",
+            color='red'
         )
         AX.legend()
         AX.set_xlabel("Date", size=16)
         AX.set_ylabel(r"Percentage Pop.($\%$)", size=16)
-        fig.suptitle(
-            f"{self.country_name} COVID-19 Trend of Death \
-            and Recovery Percentage",
-            size=16)
+        fig.suptitle(f"{self.country_name}'s COVID-19 Trend of Death and \n"
+                     "Recovery Percentage",
+                     size=16)
 
         # Formatting for the x-axis dates
         date_format = mdates.DateFormatter("%d-%b-%y")
